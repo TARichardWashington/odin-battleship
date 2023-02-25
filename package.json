@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/TARichardWashington/odin-battleship#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
     "jest": "^29.4.3"
   }
 }
