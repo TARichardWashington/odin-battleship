@@ -7,5 +7,7 @@ test('Ships can be created with a size', () => {
 });
 
 test('The size of a ship cannot be changed after it has been created', () => {
-    expect(ship.size = 6);
+    expect(() =>
+        ship.size = 6
+    ).toThrow();
 });
