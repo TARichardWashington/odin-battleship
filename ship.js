@@ -1,9 +1,11 @@
 export default class Ship {
+    #size;
+
     constructor(size) {
-        this._size = size;
+        this.#size = size;
     }
 
     get size() {
-        return this._size;
+        return this.#size;
     }
 }
