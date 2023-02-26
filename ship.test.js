@@ -40,3 +40,15 @@ test('Ships that get hit enough become sunk', () => {
 test('Ships return the correct type', () => {
     expect(ship.type).toBe('Carrier');
 });
+
+test('The size of ships must be an integer', () => {
+    expect(() =>
+        new Ship('5')
+    ).toThrow();
+});
+
+test('The size of ships must 2, 3, 4, or 5', () => {
+    expect(() =>
+        new Ship(6)
+    ).toThrow();
+});

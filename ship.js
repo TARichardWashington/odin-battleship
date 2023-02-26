@@ -4,6 +4,14 @@ export default class Ship {
     #hits;
 
     constructor(size) {
+        if (!Number.isInteger(size)) {
+            throw new TypeError('Ship size must be an integer');
+        }
+
+        if (size < 2 || size > 5) {
+            throw new RangeError('Ship size must be only 2,3,4 or 5');
+        }
+
         this.#size = size;
         this.#_sunk = false;
         this.#hits = 0;
