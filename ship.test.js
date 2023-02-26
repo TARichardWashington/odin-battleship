@@ -2,6 +2,10 @@ import Ship from './ship.js';
 
 const ship = new Ship(5);
 
+test('Ships can be instantiated ', () => {
+    expect(ship).toBeDefined();
+});
+
 test('Ships can be created with a size', () => {
     expect(ship.size).toBe(5);
 });
