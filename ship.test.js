@@ -36,3 +36,7 @@ test('Ships that get hit enough become sunk', () => {
     ship.hit();
     expect(ship.isSunk).toBe(true);
 });
+
+test('Ships return the correct type', () => {
+    expect(ship.type).toBe('Carrier');
+});

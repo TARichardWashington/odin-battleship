@@ -32,4 +32,26 @@ export default class Ship {
     get hits() {
         return this.#hits;
     }
+
+    get type() {
+        let type = '';
+        switch (this.#size) {
+            case 5:
+                type = 'Carrier';
+                break;
+            case 4:
+                type = 'Battleship'
+                break;
+            case 3:
+                type = 'Battleship';
+                break;
+            case 2:
+                type = 'Destroyer';
+                break;
+            default:
+                throw new Error('Unkown type');
+        }
+
+        return type;
+    }
 }
