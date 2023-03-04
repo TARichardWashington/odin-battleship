@@ -7,7 +7,7 @@ test('Gamebaord can be instantiated', () => {
     expect(gameboard).toBeDefined();
 });
 
-test('Ships can be added to the gameboard', () => {
+test('Ships can be added to the gameboard in the horizontal direction', () => {
     gameboard.placeShip(0, 0, true, 3);
     let ships = gameboard.ships;
 
@@ -41,4 +41,15 @@ test('Ensure all points along ships are on the game board', () => {
     expect(gameboard.shipAt(6, 6)).toBe(1);
     expect(gameboard.shipAt(7, 6)).toBe(1);
     expect(gameboard.shipAt(8, 6)).toBe(null);
+});
+
+test('Ships can be added in the vertical direction', () => {
+    gameboard.placeShip(9, 0, false, 3);
+    let ships = gameboard.ships;
+
+    expect(Array.isArray(ships)).toBe(true);
+    expect(gameboard.shipAt(9, 0)).toBe(1);
+    expect(gameboard.shipAt(9, 1)).toBe(1);
+    expect(gameboard.shipAt(9, 2)).toBe(1);
+    expect(gameboard.shipAt(9, 6)).toBe(null);
 });

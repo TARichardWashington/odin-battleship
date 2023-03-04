@@ -24,12 +24,20 @@ export default class Gameboard {
     }
 
     placeShip(x, y, direction, size) {
+        // Direction true = horizontal
+        // Direction false = virtical
         let ship = new Ship(size);
 
         this.#ships.push([ship, direction, x, y]);
 
-        for (let i = 0; i < size; i++) {
-            this.#coordinates[x + i][y] = 1;
+        if (direction) {
+            for (let i = 0; i < size; i++) {
+                this.#coordinates[x + i][y] = 1;
+            }
+        } else {
+            for (let i = 0; i < size; i++) {
+                this.#coordinates[x][y + i] = 1;
+            }
         }
     }
 
