@@ -26,13 +26,10 @@ export default class Gameboard {
     placeShip(x, y, direction, size) {
         // Direction true = horizontal
         // Direction false = virtical
-        let ship = new Ship(size);
-
-        this.#ships.push([ship, direction, x, y]);
 
         if (direction) {
             for (let i = 0; i < size; i++) {
-                if (this.shipAt(x + i, y)) {
+                if (this.isAShipAt(x + i, y)) {
                     throw new Error('Ship already exists here');
                 }
             }
@@ -42,7 +39,7 @@ export default class Gameboard {
             }
         } else {
             for (let i = 0; i < size; i++) {
-                if (this.shipAt(x, y + i)) {
+                if (this.isAShipAt(x, y + i)) {
                     throw new Error('Ship already exists here');
                 }
             }
@@ -51,6 +48,9 @@ export default class Gameboard {
                 this.#coordinates[x][y + i] = 1;
             }
         }
+
+        let ship = new Ship(size);
+        this.#ships.push([ship, direction, x, y]);
     }
 
 
@@ -59,7 +59,7 @@ export default class Gameboard {
         return this.#ships;
     }
 
-    shipAt(x, y) {
+    isAShipAt(x, y) {
         return this.#coordinates[x][y];
     }
 }
