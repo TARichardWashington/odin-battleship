@@ -43,6 +43,12 @@ test('Ensure all points along ships are on the game board', () => {
     expect(gameboard.shipAt(8, 6)).toBe(null);
 });
 
+test('Check ships cannot be placed where ships already are', () => {
+    expect(() =>
+        gameboard.placeShip(5, 6, true, 3)
+    ).toThrow();
+});
+
 test('Ships can be added in the vertical direction', () => {
     gameboard.placeShip(9, 0, false, 3);
     let ships = gameboard.ships;
