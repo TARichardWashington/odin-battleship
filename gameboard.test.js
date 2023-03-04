@@ -30,3 +30,15 @@ test('Ships can be added to the gameboard at a different location', () => {
     expect(ships[1][3]).toBe(5);
     expect(gameboard.shipAt(5, 5)).toBe(1);
 });
+
+
+test('Ensure all points along ships are on the game board', () => {
+    gameboard.placeShip(5, 6, true, 3);
+    let ships = gameboard.ships;
+
+    expect(Array.isArray(ships)).toBe(true);
+    expect(gameboard.shipAt(5, 6)).toBe(1);
+    expect(gameboard.shipAt(6, 6)).toBe(1);
+    expect(gameboard.shipAt(7, 6)).toBe(1);
+    expect(gameboard.shipAt(8, 6)).toBe(null);
+});
