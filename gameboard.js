@@ -65,11 +65,15 @@ export default class Gameboard {
 
     getShipAt(x, y) {
         if (this.#coordinates[x][y] === null) {
-            return false;F
+            return false; F
         } else {
             let shipToReturn = null;
+
             this.#ships.forEach(ship => {
-                shipToReturn = ship;
+                if (ship[2] === x && ship[3] === y) {
+                    shipToReturn = ship;
+                }
+
             });
 
             return shipToReturn[0];

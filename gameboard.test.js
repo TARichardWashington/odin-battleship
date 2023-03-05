@@ -67,5 +67,5 @@ test('Getting a ship from an empty location returns false', () => {
 
 test('Getting a ship from an empty location returns the right ship', () => {
     const testShip = new Ship(4);
-    expect(gameboard.getShipAt(0, 0).size).toBe(testShip.size);
+    expect(gameboard.getShipAt(9, 0).size).toBe(testShip.size);
 });
