@@ -50,14 +50,15 @@ test('Check ships cannot be placed where ships already are', () => {
 });
 
 test('Ships can be added in the vertical direction', () => {
-    gameboard.placeShip(9, 0, false, 3);
+    gameboard.placeShip(9, 0, false, 4);
     let ships = gameboard.ships;
 
     expect(Array.isArray(ships)).toBe(true);
     expect(gameboard.isAShipAt(9, 0)).toBe(1);
     expect(gameboard.isAShipAt(9, 1)).toBe(1);
     expect(gameboard.isAShipAt(9, 2)).toBe(1);
-    expect(gameboard.isAShipAt(9, 6)).toBe(null);
+    expect(gameboard.isAShipAt(9, 3)).toBe(1);
+    expect(gameboard.isAShipAt(9, 4)).toBe(null);
 });
 
 test('Getting a ship from an empty location returns false', () => {
@@ -65,6 +66,6 @@ test('Getting a ship from an empty location returns false', () => {
 });
 
 test('Getting a ship from an empty location returns the right ship', () => {
-    const testShip = new Ship(3);
-    expect(gameboard.getShipAt(0, 0)).toBe(testShip);
+    const testShip = new Ship(4);
+    expect(gameboard.getShipAt(0, 0).size).toBe(testShip.size);
 });

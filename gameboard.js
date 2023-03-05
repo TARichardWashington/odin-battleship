@@ -65,7 +65,14 @@ export default class Gameboard {
 
     getShipAt(x, y) {
         if (this.#coordinates[x][y] === null) {
-            return false;
+            return false;F
+        } else {
+            let shipToReturn = null;
+            this.#ships.forEach(ship => {
+                shipToReturn = ship;
+            });
+
+            return shipToReturn[0];
         }
     }
 }
