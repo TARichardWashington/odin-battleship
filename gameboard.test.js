@@ -63,3 +63,8 @@ test('Ships can be added in the vertical direction', () => {
 test('Getting a ship from an empty location returns false', () => {
     expect(gameboard.getShipAt(8, 8)).toBe(false);
 });
+
+test('Getting a ship from an empty location returns the right ship', () => {
+    const testShip = new Ship(3);
+    expect(gameboard.getShipAt(0, 0)).toBe(testShip);
+});
