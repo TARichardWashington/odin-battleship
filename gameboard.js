@@ -62,4 +62,10 @@ export default class Gameboard {
     isAShipAt(x, y) {
         return this.#coordinates[x][y];
     }
+
+    getShipAt(x, y) {
+        if (this.#coordinates[x][y] === null) {
+            return false;
+        }
+    }
 }
